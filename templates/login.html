@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="h1reg">Language Pal</h1>
+    <form class="login_form" method="post">
+        <h2 class="h2reg">Регистрация</h2>
+        <div>
+            <label class="label_reg" for="email">Почта</label>
+            <input type="email" class="form-control input_reg" id="email" aria-describedby="emailHelp"
+                   placeholder="Введите адрес почты" name="email">
+            <label class="label_reg" for="password">Пароль</label>
+            <input type="password" class="form-control input_reg" id="password" placeholder="Придумайте пароль"
+                   name="password">
+            <label class="label_reg" for="pre-password">Поддтверждение пароля</label>
+            <input type="password" class="form-control input_reg" id="pre-password" placeholder="Поддтвердите пароль пароль"
+                   name="pre-password">
+            <label class="label_reg" for="name">Имя</label>
+            <input type="text" class="form-control input_reg" id="name" placeholder="Введите имя" name="name">
+            <label class="label_reg" for="surname">Фамилия</label>
+            <input type="text" class="form-control input_reg" id="surname" placeholder="Введите фамилию" name="surname">
+            <label class="label_reg" for="midname">Отчество</label>
+            <input type="text" class="form-control input_reg" id="midname" placeholder="Введите отчество" name="midname">
+        </div>
+        <button type="submit" class="btn btn-info mt-4">Зарегестрироваться</button>
+    </form>
+    {% endblock %}

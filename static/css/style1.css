@@ -1,0 +1,30 @@
+.h1reg{
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px
+}
+
+.h2reg{
+    text-align: center;
+    margin-bottom: 30px;
+    color: white;
+}
+
+form.login_form {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 500px;
+    background-color: #6C757D;
+    border: 2px solid gray;
+    border-radius: 20px;
+    padding: 30px;
+}
+
+.input_reg{
+    margin-bottom: 10px
+}
+.label_reg {
+    color : white;
+    font-size: 18px;
+    margin-top: 5px
+}
