@@ -2,25 +2,76 @@
 
 {% block content %}
 <h1 class="h1reg">Language Pal</h1>
-    <form class="login_form" method="post">
-        <h2 class="h2reg">Регистрация</h2>
-        <div>
-            <label class="label_reg" for="email">Почта</label>
-            <input type="email" class="form-control input_reg" id="email" aria-describedby="emailHelp"
-                   placeholder="Введите адрес почты" name="email">
-            <label class="label_reg" for="password">Пароль</label>
-            <input type="password" class="form-control input_reg" id="password" placeholder="Придумайте пароль"
-                   name="password">
-            <label class="label_reg" for="pre-password">Поддтверждение пароля</label>
-            <input type="password" class="form-control input_reg" id="pre-password" placeholder="Поддтвердите пароль пароль"
-                   name="pre-password">
-            <label class="label_reg" for="name">Имя</label>
-            <input type="text" class="form-control input_reg" id="name" placeholder="Введите имя" name="name">
-            <label class="label_reg" for="surname">Фамилия</label>
-            <input type="text" class="form-control input_reg" id="surname" placeholder="Введите фамилию" name="surname">
-            <label class="label_reg" for="midname">Отчество</label>
-            <input type="text" class="form-control input_reg" id="midname" placeholder="Введите отчество" name="midname">
+<form class="login_form" method="post" novalidate>
+    {{ form.hidden_tag() }}
+    <h2 class="h2reg">Регистрация</h2>
+    <div>
+        {{ form.mail.label(class="label_reg") }}
+        {{ form.mail(class="form-control input_reg", type="email", placeholder="Введите адрес почты") }}
+        {% for error in form.mail.errors %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
         </div>
-        <button type="submit" class="btn btn-info mt-4">Зарегестрироваться</button>
-    </form>
-    {% endblock %}
+        {% endfor %}
+    </div>
+
+    <div>
+        {{ form.password.label(class="label_reg") }}
+        {{ form.password(class="form-control input_reg", type="password", placeholder="Придумайте пароль") }}
+        {% for error in form.password.errors %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+        {% endfor %}
+    </div>
+
+    <div>
+        {{ form.pre_password.label(class="label_reg") }}
+        {{ form.pre_password(class="form-control input_reg", type="password", placeholder="Поддтвердите пароль")
+        }}
+        {% for error in form.pre_password.errors %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+        {% endfor %}
+    </div>
+
+    <div>
+        {{ form.name.label(class="label_reg") }}
+        {{ form.name(class="form-control input_reg", placeholder="Введите имя") }}
+        {% for error in form.password.errors %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+        {% endfor %}
+    </div>
+
+    <div>
+        {{ form.surname.label(class="label_reg") }}
+        {{ form.surname(class="form-control input_reg", placeholder="Введите фамилию") }}
+        {% for error in form.password.errors %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+        {% endfor %}
+    </div>
+
+    <div>
+        {{ form.patr.label(class="label_reg") }}
+        {{ form.patr(class="form-control input_reg", placeholder="Введите отчество") }}
+        {% for error in form.password.errors %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+        {% endfor %}
+    </div>
+    <div>
+        {{ form.submit(type="submit", class="btn btn-info mt-4") }}
+    </div><br>
+    {% if message %}
+        <div class="alert alert-danger" role="alert">
+                {{message}}
+        </div>
+    {% endif %}
+</form>
+{% endblock %}

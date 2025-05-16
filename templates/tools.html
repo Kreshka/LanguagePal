@@ -1,12 +1,41 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="card">
-  <h5 class="card-header">Training with yours wordbook</h5>
-  <div class="card-body">
-    <h5 class="card-title"></h5>
-    <p class="card-text"></p>
-    <a href="tools/training" class="btn btn-primary">Go training!</a>
-  </div>
+<h1 class="main-h1">Инструменты для изучения</h1>
+
+<div class="row row-cols-md-3 g-4">
+    <div class="col">
+        <div class="card t-card">
+            <h5 class="card-header h5f">Письменная тренировка</h5>
+            <div class="card-body">
+                <h5 class="card-title h5s">С загрузкой слов и словарями по темам</h5>
+                <p class="card-text t">В этом режиме тренировки вы загружаете свои таблицы со словами в фромате
+                    <i>слово;перевод;тег</i> и записываете перевод данных слов</p>
+                <a href="tools/training" class="btn btn-primary lb">Начать тренировку</a>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card t-card">
+            <h5 class="card-header h5f">Тестовая тренировка</h5>
+            <div class="card-body">
+                <h5 class="card-title h5s">С выбором словарей по темам и загрузкой слов</h5>
+                <p class="card-text t">В этом режиме тренировки вы проходите тест с вариантами ответов из загруженного словаря в фромате
+                    <i>слово;перевод;тег</i> или из словарей по темам</p>
+                <a href="tools/training_test" class="btn btn-primary lb">Начать тренировку</a>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card t-card">
+            <h5 class="card-header h5f">Устный диктант</h5>
+            <div class="card-body">
+                <h5 class="card-title h5s">С загрузкой слов из CSV/TXT</h5>
+                <p class="card-text t">В этом режиме тренировки вы загружаете свои таблицы со словами в фромате
+                    <i>слово;перевод;тег</i> и записываете перевод под диктовку</p>
+                <a href="tools/training" class="btn btn-primary lb">Начать тренировку</a>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}

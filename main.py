@@ -1,6 +1,16 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
+from check import get
+from guessing_words import GForm
+from login_and_signin_forms import LoginForm, SigninForm
+from data import db_session
+from data.users import User
+from flask_login import LoginManager, login_user, login_required, logout_user
 
 app = Flask(__name__)
+login_manager = LoginManager()
+login_manager.init_app(app)
+app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
+db_session.global_init("db/users.db")
 
 
 @app.route("/")
@@ -9,38 +19,73 @@ def home_page():
     return render_template('home.html')
 
 
+@login_manager.user_loader
+def load_user(user_id):
+    db_sess = db_session.create_session()
+    return db_sess.query(User).get(user_id)
+
+
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return redirect("/")
+
+
 @app.route("/tools")
 def tools():
     return render_template('tools.html')
 
 
-@app.route("/tools/training")
-def training():
-    return render_template('training1.html')
+@app.route("/wordbook")
+def wordbook():
+    return render_template('tools.html')
 
 
-@app.route("/login", methods=['POST', 'GET'])
+@app.route('/login', methods=['GET', 'POST'])
 def login():
-    if request.method == 'GET':
-        return render_template('login.html')
-    elif request.method == 'POST':
-        print(request.form['email'])
-        print(request.form['password'])
-        print(request.form['pre-password'])
-        print(request.form['name'])
-        print(request.form['surname'])
-        print(request.form['midname'])
-        return "Форма отправлена"
+    form = LoginForm()
+    if form.validate_on_submit():
+        db_sess = db_session.create_session()
+        if db_sess.query(User).filter(User.email == form.mail.data).first():
+            return render_template('register.html', title='Регистрация',
+                                   form=form,
+                                   message="Такой пользователь уже есть")
+        user = User(
+            name=form.name.data,
+            email=form.mail.data,
+            surname=form.surname.data,
+            patr=form.patr.data
+        )
+        user.set_password(form.password.data)
+        db_sess.add(user)
+        db_sess.commit()
+        return redirect('/signin')
+    return render_template('login.html', title='Регистрация', form=form)
 
 
 @app.route("/signin", methods=['POST', 'GET'])
 def signin():
-    if request.method == 'GET':
-        return render_template('signin.html')
-    elif request.method == 'POST':
-        print(request.form['email'])
-        print(request.form['password'])
-        return "Форма отправлена"
+    form = SigninForm()
+    if form.validate_on_submit():
+        db_sess = db_session.create_session()
+        user = db_sess.query(User).filter(User.email == form.mail.data).first()
+        if user and user.check_password(form.password.data):
+            login_user(user, remember=form.remember_me.data)
+            return redirect("/")
+        return render_template('login.html',
+                               message="Неправильный логин или пароль",
+                               form=form)
+    return render_template('signin.html', title='Вход', form=form)
+
+
+@app.route("/tools/training_test", methods=['GET', 'POST'])
+def training():
+    lst = get("doc.csv")
+    form = GForm()
+    if form.validate_on_submit():
+        return redirect('/tools/training_test')
+    return render_template('training_test.html', title='Авторизация', form=form, lst=lst, thema="фрукты и овощи")
 
 
 if __name__ == '__main__':

@@ -1,0 +1,48 @@
+/* выбор карточки */
+
+.t-card
+{
+max-width: 350px;
+max-height: 450px;
+border-width: 3.5px;
+padding: 20
+}
+
+.t-card:hover{
+border-width: 4px
+}
+
+.h5f
+{
+font-size: 25px
+}
+
+.h5s
+{
+font-size: 23px;
+margin-bottom: 30px
+}
+
+.t
+{
+font-size: 19px
+}
+
+/*
+.lb
+{
+margin-top: 80px;
+margin-left: 145px;
+font-size: 20px
+}
+*/
+
+.h1t
+{
+text-align: center;
+}
+
+.h3t
+{
+text-align: center;
+}
