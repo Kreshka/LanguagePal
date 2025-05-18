@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="varss">
+    <h1 class="h1t2">Выберете словарь для тренировки</h1>
+    <div class="row row-cols-3">
+        {% for i in dct %}
+        <div class="col">
+            <div class="vart">
+                <h1>{{ i[0][0] }}</h1>
+                <p>{{ i[0][1] }}</p>
+                <a class="btn btn-primary" href="{{ type }}?dct={{ i[1] }}">Начать тренировку</a>
+            </div>
+        </div>
+        {% endfor %}
+        <div class="col">
+            <div class="vart">
+                <h3 class="mb-4">Загрузите свой словарь</h3>
+                <form method="post" enctype="multipart/form-data">
+                    <div class="file-upload-container">
+                        <label>
+                            <div class="css-plus-btn"></div>
+                            <input type="file" class="d-none" name="file">
+                        </label>
+                        <span class="file-label" id="file-name-label">Выберите файл</span>
+
+                        <script>
+                            document.querySelector('input[type="file"]').addEventListener('change', function(e) {
+                              const fileName = e.target.files[0]?.name || 'Выберите файл';
+                              document.getElementById('file-name-label').textContent = fileName;
+                            });
+                        </script>
+                        <button type="submit" class="btn btn-primary bto">Начать тренировку</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

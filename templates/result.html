@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="h1t">Ваши результаты</h1>
+<div class="results">
+    <h3 class="h3t">Вы набрали {{ score }} из {{ total }} баллов</h3>
+    <h2 class="h2t">Ваши ответы:</h2>
+    <ul class="ult">
+        {% for i in results %}
+        <li class="element">Вопрос {{ loop.index }}: {{ i.question }}<br>
+            {% if i.user_answer == i.correct_answer %}
+            ✓ Верно<br>
+            {% else %}
+            ✗ Неверно, вы написали: <i>{{ i.user_answer }}</i>, правильный ответ: <i>{{ i.correct_answer }}</i><br>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+    <a class="btn btn-light btnl" href="{{ goto }}">Попробовать снова</a>
+</div>
+{% endblock %}

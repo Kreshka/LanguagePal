@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form method="POST">
+    {{ form.hidden_tag() }}
+    <h1 class="h1t">Тест по теме {{ thema }}</h1>
+    <div class="test">
+        {% for question in questions %}
+        <div class="question">
+            <h3 class="mb-4">Вопрос {{ loop.index }}</h3>
+            <h3 class="h3t">{{ question.text }}:</h3>
+            {{ form[question.id](class="pt", placeholder=" Введите перевод") }}
+        </div>
+        {% endfor %}
+        {{ form.submit(type="submit", class="btn btn-info btnt") }}
+    </div>
+</form>
+{% endblock %}

@@ -1,0 +1,85 @@
+.vart
+{
+margin-top: 40px;
+border-radius: 30px;
+padding: 35px;
+font-size: 20px;
+width: 325px;
+height: 300px;
+box-shadow: 0 0 0 3.5px #979797; /* Имитация границы */
+transition: box-shadow 0.2s ease;
+}
+
+.vart:hover
+{
+box-shadow: 0 0 0 5.5px #979797; /* "Граница" растет наружу */
+}
+
+.varss
+{
+margin-bottom: 100px
+}
+
+.h1t2
+{
+margin-top: 65px;
+text-align: center;
+margin-bottom: 40px;
+font-size: 50px
+}
+
+.file-upload-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.css-plus-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #0d6efd;
+    color: white;
+    position: relative;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.css-plus-btn:hover {
+    background: #0b5ed7;
+    transform: scale(1.1);
+}
+
+.css-plus-btn::before,
+.css-plus-btn::after {
+    content: "";
+    position: absolute;
+    background: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.css-plus-btn::before {
+    width: 20px;
+    height: 2px;
+}
+
+.css-plus-btn::after {
+    width: 2px;
+    height: 20px;
+}
+
+.file-label {
+    font-size: 16px;
+    color: #6c757d;
+    font-family: Arial, sans-serif;
+
+}
+
+.l1
+{
+font-size: 20
+}

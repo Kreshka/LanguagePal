@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!--<form method="POST">-->
+<!--    {{ form.hidden_tag() }}-->
+<!--    <h1 class="h1t">Тест по теме {{ thema }}</h1>-->
+<!--    <div class="test">-->
+<!--        {% for question in questions %}-->
+<!--        <div class="question">-->
+<!--            <h3 class="mb-4">Вопрос {{ loop.index }}</h3>-->
+<!--            <h3 class="h3t">Напишите перевод слова:</h3>-->
+<!--            <button type="button" class="btn btn-primary" onclick="toggleAudio_{{ loop.index }}()">Послушать слово</button>-->
+<!--            <audio id="audioPlayer-{{ loop.index }}" src="/static/voices/{{ question.correct }}.mp3" preload="auto"></audio>-->
+
+<!--            <script>-->
+<!--                function playAudio_{{ loop.index }}() {-->
+<!--                  document.getElementById("audioPlayer-{{ loop.index }}");.play().catch(e => console.error("Ошибка:", e));-->
+<!--                }-->
+<!--            </script>-->
+<!--            {{ form[question.id](class="pt", placeholder=" Введите перевод") }}-->
+<!--        </div>-->
+<!--        {% endfor %}-->
+<!--        {{ form.submit(type="submit", class="btn btn-info btnt") }}-->
+<!--    </div>-->
+<!--</form>-->
+
+<h1 class="h1t">В разработке</h1>
+{% endblock %}

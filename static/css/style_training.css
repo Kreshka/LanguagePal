@@ -4,12 +4,14 @@
 {
 max-width: 350px;
 max-height: 450px;
-border-width: 3.5px;
-padding: 20
+padding: 20;
+box-shadow: 0 0 0 3.5px #979797; /* Имитация границы */
+transition: box-shadow 0.2s ease;
+border-radius: 1px;
 }
-
-.t-card:hover{
-border-width: 4px
+.t-card:hover
+{
+box-shadow: 0 0 0 5.5px #979797; /* "Граница" растет наружу */
 }
 
 .h5f
@@ -28,21 +30,93 @@ margin-bottom: 30px
 font-size: 19px
 }
 
-/*
-.lb
-{
-margin-top: 80px;
-margin-left: 145px;
-font-size: 20px
-}
-*/
+/* вопросы теста */
 
 .h1t
 {
+margin-top: 65px;
 text-align: center;
+margin-bottom: 75px;
+font-size: 50px
 }
 
 .h3t
 {
-text-align: center;
+margin-bottom: 30px
+}
+
+.h2t
+{
+text-color: white;
+margin-bottom: 30px;
+}
+
+.question
+{
+margin-top: 40px;
+border: 3.5px solid gray;
+border-radius: 30px;
+padding: 35px;
+font-size: 20px;
+width: 800px;
+margin-left: auto;
+margin-right: auto;
+}
+
+.btnt
+{
+margin-top: 50px;
+font-size: 25px;
+margin-bottom: 200px;
+border-radius: 8px;
+width: 300px;
+height: 60px;
+float: right;
+margin-right: 10px
+}
+
+.test
+{
+width: 800px;
+margin-left: auto;
+margin-right: auto;
+}
+
+.results
+{
+margin-top: 40px;
+border: 3.5px solid gray;
+background-color: #6C757D;
+border-radius: 30px;
+padding: 40px;
+font-size: 20px;
+width: 700px;
+margin-left: auto;
+margin-right: auto;
+color: #FFFFFF;
+padding-bottom: 70px
+}
+
+.ult
+{
+color: #FFFFFF;
+}
+
+.element
+{
+margin-bottom: 20px;
+}
+
+.btnl
+{
+float: right;
+width: 250px;
+height: 50px;
+font-size: 20px;
+text-align: center
+}
+
+.pt
+{
+border-radius: 7.5px;
 }
